@@ -2,15 +2,17 @@
 // -------------The name of the file for a controller is always plural-----------
 
 const Film = require('../models/film');
-function filmsIndex(req, res){
+
+function filmsIndex(req, res) {
   Film
     .find()
     .populate('user')
-    .exec() // Everything before .exec() won't be executed until .exec()
-    .then(films => {
-      res.render('films/index', {films});
+    .exec()
+    .then(films => res.render('films/index', { films }))
+    .catch(err => {
+      console.log(err);
+      return res.sendStatus(500);
     });
-  // There is no .finally() here, because the connection to node.js is always open
 }
 
 // ---------------------Controller (function) to show page-----------------------
@@ -18,9 +20,10 @@ function filmsIndex(req, res){
 function filmsShow(req, res){
   Film
     .findById(req.params.id) // This is only usable because we have the body-parser
-    .populate('photos')
+    .populate('user')
     .exec()
-    .then(film => res.render('films/show', {film}));
+    .then(film => res.render('films/show', {film}))
+    .catch(err => console.log(err));
 }
 
 // --------------Controller (function) to show the new film page-----------------
@@ -40,7 +43,7 @@ function filmsCreate(req, res) {
     .then(() => res.redirect('/films')) // A promise is either fulfilled or not fulfilled. If it is not fulfilled, it will move onto .catch(). If it is fulfilled, it will move to the next .then()
     .catch((error) => { // Catches the validation error.
       if(error.name === 'ValidationError') {
-        return res.badRequest('/films/new', error.toString()); // Must be returned
+        return res.BadRequest('/films/new', error.toString()); // Must be returned
       }
     });
 }
@@ -50,7 +53,8 @@ function filmsCreate(req, res) {
 function filmsEdit(req, res) {
   Film
     .findById(req.params.id) // This is only usable because we have the body-parser
-    .populate('photos') // Why is this necessary here?
+
+    // .populate('photos') // Why is this necessary here?
     .exec()
     .then(film => res.render('films/edit', {film}));
 }
@@ -70,12 +74,19 @@ function filmsUpdate(req, res){
 
 // -----------------------Controller (function) to delete film-------------------
 
-function filmsDelete(req, res){
+function filmsDelete(req, res) {
   Film
     .findById(req.params.id)
     .exec()
-    .then(film => film.remove())
-    .then(() => res.redirect('/films'));
+    .then(film => {
+      if(!film) return res.sendStatus(404);
+      return film.remove();
+    })
+    .then(() => res.redirect('/films'))
+    .catch(err => {
+      console.log(err);
+      return res.sendStatus(500);
+    });
 }
 
 // ------Exporting all the controllers so they can communicate in the routes-----

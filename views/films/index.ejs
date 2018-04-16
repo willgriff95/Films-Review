@@ -1,48 +1,14 @@
-<h2>Films</h2>
 <div class="row">
-    <div class="col s12">
-      <ul class="tabs">
-        <li class="tab col s3"><a class="active" href="#test1">All Albums</a></li>
-        <% if(locals.isLoggedIn) {%>
-        <li class="tab col s3"><a href="#test2">My Albums</a></li>
-        <% } %>
-      </ul>
-    </div>
-    <div id="test1" class="col s12">
-        <div class="col s12 m6">
-          <div class="card blue-grey darken-1">
-            <div class="card-content white-text">
-              <span class="card-title"><%= film.title %></span>
-              <p><%= film.genre %></p>
-              <p><%= film.year %></p>
-            </div>
-            <div class="card-action">
-              <a href="/films/<%= film._id %>" class="green-text">View Album</a>
-              <a href="/films/<%= film._id %>/edit" class="orange-text">Edit Album</a>
-            </div>
-          </div>
+  <% films.forEach(film => { %>
+    <div class="col s12 m4">
+      <div class="card">
+        <a href="/films/<%= film._id %>"><div class="card-image" style="background-image: url(<%= film.photo %>); background-repeat: no-repeat; background-position: center; background-size: cover;" >
+        </div><a/>
+        <div class="black-text card-content">
+          <div class="title" ><%= film.title %></div>
+          <div class="genre" ><%= film.genre %></div>
         </div>
       </div>
-    <div id="test2" class="col s12">
-      <% films.forEach(film => {
-        if((film.user && film.user.id) === locals.user.id) { %>
-        <div class="col s12 m6">
-          <div class="card blue-grey darken-1">
-            <div class="card-content white-text">
-              <span class="card-title"><%= film.title %></span>
-              <p><%= film.genre %></p>
-              <p><%= film.year.getFullYear() %></p>
-              <%= (film.user && film.user.id) === locals.user.id %>
-
-            </div>
-            <div class="card-action">
-              <a href="/films/<%= film._id %>" class="green-text">View Album</a>
-              <a href="/films/<%= film._id %>/edit" class="orange-text">Edit Album</a>
-            </div>
-          </div>
-        </div>
-        <% } %>
-      <% }) %>
-      </div>
     </div>
-  </div>
+  <% }) %>
+</div>

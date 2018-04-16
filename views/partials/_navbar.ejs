@@ -10,9 +10,12 @@
         <li><a class="left black-text text-darken-2" href="/films">Films</a></li>
         <li><a class="left black-text text-darken-2" href="/films/new">Add Film</a></li>
         </ul>
-        <ul class="right hide-on-med-and-down">
+        <ul class="userSignIn right hide-on-med-and-down">
           <!-- Dropdown Trigger -->
-          <li><a class="dropdown-trigger black-text text-darken-2"  data-target="dropdown1"><%= locals.user.username %><i class="material-icons right">arrow_drop_down</i></a></li>
+          <a class="userSignIn2 dropdown-trigger black-text text-darken-2"  data-target="dropdown1">
+          <li class="name" ><%= locals.user.username %></li>
+          <li><img class="profilePicture" src="<%= locals.user.photo %>"></li>
+          <i class="material-icons right">arrow_drop_down</i></a>
         </ul>
         <ul id="dropdown1" class="right dropdown-content">
           <li><a href="/logout">Log Out</a></li>

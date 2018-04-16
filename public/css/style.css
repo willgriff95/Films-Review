@@ -18,12 +18,67 @@ nav .nav-wrapper {
 
 }
 
+.card-image{
+  height: 320px;
+  background-image:
+}
+
+.title {
+    font-size: 1em;
+    line-height: 110%;
+    margin: 0;
+}
+.genre {
+    font-size: 0.8em;
+    line-height: 110%;
+    margin: 0;
+    font-family: 'circe-light';
+}
+.filmText {
+    font-size: 1em;
+    line-height: 110%;
+    margin: 0;
+}
+.editText {
+    font-size: 1em;
+    line-height: 110%;
+    margin: 0;
+}
+
+.card .card-content {
+    padding: 10px;
+    border-radius: 1px;
+    height: 10%;
+}
+
+.name {
+    width: 75%;
+}
+
+.userSignIn{
+  width: 45%;
+  text-align: right;
+}
+
+.userSignIn2{
+  width: 100%;
+}
+
 nav ul.left {
     float: left;
     left: 20%;
     position: absolute;
     /* top: 20%; */
 }
+.profilePicture {
+    width: 60px;
+    top: 50%;
+    right: 5%;
+    position: absolute;
+    height: 60px;
+    border-radius: 60px;
+}
+
 nav ul li {
     -webkit-transition: background-color .3s;
     transition: background-color .3s;
@@ -40,6 +95,8 @@ nav ul a:hover {
   background-color: lightGrey;
 
 }
+
+
 
 .dropdown-trigger {
   font-family: 'circe rounded';

@@ -21,6 +21,7 @@ function createRoute(req, res) {
     .then((user) =>{
       console.log(user);
       if(!user || !user.validatePassword(req.body.password)){
+        req.flash('danger', 'Email or password is incorrect');
         res.status(401).render('sessions/index', {message: 'Wrong credentials'});
       }
       req.session.userId = user.id;

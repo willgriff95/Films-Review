@@ -4,8 +4,8 @@ const mongoose = require('mongoose');
 
 const filmSchema = new mongoose.Schema({
   title: {type: String, required: true},
-  genre: String,
-  year: Date,
+  genre: {type: String, required: true},
+  // year: String,
   photo: String,
   rating: {type: Number, min: 1, max: 10, default: 3}
 });
