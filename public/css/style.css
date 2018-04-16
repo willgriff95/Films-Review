@@ -10,6 +10,18 @@ body{
   font-weight: 400;
   color: black;
   font-size: 20px;
+  background-color: #F2F2F2;
+}
+.copyright {
+    font-size: 12px;
+}
+
+.container {
+    width: 85%;
+}
+
+.filmWidth {
+ width: 250px;
 }
 
 nav .nav-wrapper {
@@ -28,8 +40,15 @@ nav .nav-wrapper {
     line-height: 110%;
     margin: 0;
 }
+.row {
+    margin-left: auto;
+    /* margin-top: 90px; */
+    margin-right: auto;
+    margin-bottom: 20px;
+}
+
 .genre {
-    font-size: 0.8em;
+    font-size: 0.7em;
     line-height: 110%;
     margin: 0;
     font-family: 'circe-light';
@@ -96,7 +115,27 @@ nav ul a:hover {
 
 }
 
-
+.rating {
+    height: 30px;
+    width: 20%;
+    padding-left: 2px;
+    padding-top: 5px;
+    font-size: 14px;
+    letter-spacing: 4px;
+    top: 15px;
+    color: white;
+    overflow: overlay;
+    background-color: orange;
+    border-radius: 20px;
+    text-align: center;
+    margin: 0 auto;
+    position: relative;
+}
+h2 {
+    font-size: 2rem;
+    line-height: 110%;
+    margin: 4.5rem 0 3rem 0;
+}
 
 .dropdown-trigger {
   font-family: 'circe rounded';

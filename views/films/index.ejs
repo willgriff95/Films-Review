@@ -1,14 +1,15 @@
 <div class="row">
+  <h2>All Films</h2>
+
   <% films.forEach(film => { %>
-    <div class="col s12 m4">
-      <div class="card">
-        <a href="/films/<%= film._id %>"><div class="card-image" style="background-image: url(<%= film.photo %>); background-repeat: no-repeat; background-position: center; background-size: cover;" >
+    <div class="col s12 m4 filmWidth" style="width: 250px;">
+        <div class="rating"><%= film.rating %></div>
+        <a href="/films/<%= film._id %>"><div class="z-depth-3 card-image" style="background-image: url(<%= film.photo %>); background-repeat: no-repeat; background-position: center; background-size: cover;" >
         </div><a/>
-        <div class="black-text card-content">
+        <div class="black-text" style="padding: 15px;">
           <div class="title" ><%= film.title %></div>
           <div class="genre" ><%= film.genre %></div>
         </div>
-      </div>
     </div>
   <% }) %>
 </div>

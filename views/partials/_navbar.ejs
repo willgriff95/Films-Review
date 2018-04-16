@@ -14,7 +14,11 @@
           <!-- Dropdown Trigger -->
           <a class="userSignIn2 dropdown-trigger black-text text-darken-2"  data-target="dropdown1">
           <li class="name" ><%= locals.user.username %></li>
-          <li><img class="profilePicture" src="<%= locals.user.photo %>"></li>
+          <% if(locals.user.photo === '') { %>
+            <li><img class="profilePicture" src="https://i.imgur.com/pxca5Js.jpg"></li>
+          <% } else { %>
+            <li><img class="profilePicture" src="<%= locals.user.photo %>"></li>
+            <% } %>
           <i class="material-icons right">arrow_drop_down</i></a>
         </ul>
         <ul id="dropdown1" class="right dropdown-content">

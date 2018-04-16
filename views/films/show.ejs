@@ -1,4 +1,5 @@
 <div class="row">
+  <h2><%= film.title %></h2>
     <div class="col s12 m4">
       <div class="card">
         <div class="card-image" style="background-image: url(<%= film.photo %>); background-repeat: no-repeat; background-position: center; background-size: cover;" >
@@ -8,8 +9,9 @@
         <div class="genre black-text" ><%= film.genre %></div>
         </div>
         <div class="card-action">
-        <form method="POST" action="/films/<%= film._id %>">
           <button class="green btn" href="/films/<%= film._id %>/edit" >Edit</button>
+
+        <form method="POST" action="/films/<%= film._id %>">
           <input type="hidden" name="_method" value="delete">
           <button class="red btn">Delete</button>
         </form>

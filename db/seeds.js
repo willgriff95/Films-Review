@@ -7,7 +7,7 @@ mongoose.connect(databaseURI);
 
 const Film = require('../models/film');
 
-Film.collection.drop();
+// Film.collection.drop();
 
 Film.create([{
   title: 'The Godfather',

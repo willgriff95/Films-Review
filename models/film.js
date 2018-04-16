@@ -7,7 +7,7 @@ const filmSchema = new mongoose.Schema({
   genre: {type: String, required: true},
   // year: String,
   photo: String,
-  rating: {type: Number, min: 1, max: 10, default: 3}
+  rating: {type: Number, min: 1, max: 10, default: 3 }
 });
 
 module.exports = mongoose.model('Film', filmSchema);
