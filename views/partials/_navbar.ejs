@@ -1,0 +1,27 @@
+<!-- <% locals.user %> -->
+
+<nav>
+  <div class="nav-wrapper white">
+    <a href="/" class="left logo">REVU</a>
+      <% if(locals.isLoggedIn) { %>
+        <ul id="nav-mobile" class="left hide-on-med-and-down">
+        <li><a class="left black-text text-darken-2" href="/discover">Discover</a></li>
+        <li><a class="left black-text text-darken-2" href="/reviews">Your Reviews</a></li>
+        <li><a class="left black-text text-darken-2" href="/films">Films</a></li>
+        <li><a class="left black-text text-darken-2" href="/films/new">Add Film</a></li>
+        </ul>
+        <ul class="right hide-on-med-and-down">
+          <!-- Dropdown Trigger -->
+          <li><a class="dropdown-trigger black-text text-darken-2"  data-target="dropdown1"><%= locals.user.username %><i class="material-icons right">arrow_drop_down</i></a></li>
+        </ul>
+        <ul id="dropdown1" class="right dropdown-content">
+          <li><a href="/logout">Log Out</a></li>
+        </ul>
+          <% } else { %>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a class="right black-text text-darken-2" href="/signup">Sign Up</a></li>
+            <li><a class="right black-text text-darken-2" href="/signin">Sign In</a></li>
+            </ul>
+          <% } %>
+  </div>
+</nav>

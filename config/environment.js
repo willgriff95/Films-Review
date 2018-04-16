@@ -1,23 +1,5 @@
-module.exports = {
-  port: process.env.PORT || 3000,
-  dbURI: process.env.MONGODB_URI || 'mongodb://localhost/express-authentication'
-};
-const express  = require("express");
-const router   = express.Router();
+// ----This file is here to prevent hardcoding. They are exported to index.js----
+const databaseURI = 'mongodb://localhost/myDB';
+const port = 3000;
 
-const static = require('../controllers/static');
-const registrations = require('../controllers/registrations');
-const sessions = require('../controllers/sessions');
-
-router.route('/')
-  .get(static.index);
-
-router.route('/register')
-  .get(registrations.new)
-  .post(registrations.create);
-
-router.route('/login')
-  .get(sessions.new)
-  .post(sessions.create);
-
-module.exports = router;
+module.exports = {databaseURI, port};

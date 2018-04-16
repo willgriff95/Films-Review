@@ -1,0 +1,17 @@
+<div class="row">
+  <h2>Edit <%= film.title %></h2>
+  <form class="col l12" action="/films/<%= film._id %>" method="post">
+    <input type="hidden" name="_method" value="PUT">
+    <div class="input-field col l12">
+      <input type="text" name="name" id="name_field" value="<%= film.name %>">
+      <label for="name-field">Name</label>
+    </div>
+    <div class="input-field col l12">
+      <input type="number" name="year" id="year_field" value="<%= film.year.getYear() %>" required>
+      <label for="year_field">Year</label>
+    </div>
+    <div class="input-field col l12">
+      <button class="green btn">Edit Album</button>
+    </div>
+  </form>
+</div>

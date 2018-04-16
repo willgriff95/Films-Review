@@ -1,0 +1,67 @@
+.logo {
+    font-family: 'circe rounded';
+    font-weight: 800;
+    letter-spacing: 10px;
+    color: black;
+    font-size: 20px;
+}
+body{
+  font-family: 'circe';
+  font-weight: 400;
+  color: black;
+  font-size: 20px;
+}
+
+nav .nav-wrapper {
+    /* height: 100%; */
+    padding-left: 5%;
+
+}
+
+nav ul.left {
+    float: left;
+    left: 20%;
+    position: absolute;
+    /* top: 20%; */
+}
+nav ul li {
+    -webkit-transition: background-color .3s;
+    transition: background-color .3s;
+    float: left;
+
+}
+nav ul li:hover {
+  /* border-radius: 10px 10px 0px 0px; */
+  background-color: lightGrey;
+
+}
+nav ul a:hover {
+  /* border-radius: 10px 10px 0px 0px; */
+  background-color: lightGrey;
+
+}
+
+.dropdown-trigger {
+  font-family: 'circe rounded';
+  font-weight: 800;
+  letter-spacing: 10px;
+  color: black;
+  font-size: 15px;
+  text-transform: uppercase;
+}
+
+
+
+.dropdown-content li>a, .dropdown-content li>span {
+    font-size: 16px;
+    color: black;
+    line-height: 22px;
+    background-color: lightGrey;
+    padding: 14px 16px;
+}
+
+.page-footer {
+    padding-top: 20px;
+    color: #fff;
+    background-color: #2B2B2B;
+}

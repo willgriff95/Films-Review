@@ -1,0 +1,38 @@
+
+<div class="row">
+  <% if(messages.danger){ %>
+    <div class="col s12 l12">
+      <div class="card red lighten-3">
+        <div class="card-content red-text">
+          <span class="card-title"><%= messages.danger %></span>
+        </div>
+      </div>
+    </div>
+  <% } %>
+  <h2>Add Film</h2>
+  <form class="col l12" action="/films" method="post">
+    <div class="input-field col l12">
+      <input type="text" name="title" id="title_field">
+      <label for="title-field">Title</label>
+    </div>
+    <div class="input-field col l12">
+      <input type="text" name="genre" id="genre_field" required>
+      <label for="genre_field">Genre</label>
+    </div>
+    <div class="input-field col l12">
+      <input type="number" name="rating" id="year_field" required>
+      <label for="year_field">Year</label>
+    </div>
+    <div class="input-field col l12">
+      <input type="url" name="photo" id="photo_field" required>
+      <label for="photo_field">Photo</label>
+    </div>
+    <div class="input-field col l12">
+      <input type="number" name="rating" id="rating_field" required>
+      <label for="rating_field">Rating</label>
+    </div>
+    <div class="input-field col l12">
+      <button class="green btn">Add Film</button>
+    </div>
+  </form>
+</div>
