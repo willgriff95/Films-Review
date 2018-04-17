@@ -84,5 +84,9 @@ router.route('/*').get((req, res) => {
   res.redirect('/'); //This renders the error on the homepage
   // res.render('statics/404.ejs');
 });
+//--------COMMENTS-------------------------------------------------------
+router.post('/films/:id/reviews', secureRoute, films.commentNew);
+router.delete('/films/:showId/reviews/:reviewId', secureRoute, films.commentDelete);
+//------------------------------------------------------------------------------
 
 module.exports = router;

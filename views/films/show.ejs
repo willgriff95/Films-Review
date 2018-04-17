@@ -19,4 +19,29 @@
     <li><a href="/films/<%= film._id %>/edit" class="btn-floating blue"><i class="material-icons">mode_edit</i></a></li>
   </ul>
 </div>
+<%# //----------SHOW Reviews------------------------------------------------- %>
+</form>
+  <% film.reviews.forEach(review => { %>
+      <div class="col s16 m16">
+      <div class="card">
+        <div class="card-image">
+          <img src="<%= review.url %>">
+        </div>
+          <div class="card-content">
+            <ul>
+              <%= review.content %>
+              <% if(review.user) {%>
+              <%= review.user.username %>
+              <% } %>
+            </ul>
+        </div>
+        <div class="card-action">
+          <form method ="POST"action ="/films/<%= film._id %>/reviews/<%= review._id %>">
+          <input type="hidden" name="_method" value="DELETE">
+          <button class="red btn">Deletion</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  <% }) %>
 </form>

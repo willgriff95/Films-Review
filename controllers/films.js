@@ -2,6 +2,8 @@
 // -------------The name of the file for a controller is always plural-----------
 
 const Film = require('../models/film');
+const Review = require('../models/review');
+
 
 function filmsIndex(req, res) {
   Film
@@ -89,6 +91,50 @@ function filmsDelete(req, res) {
     });
 }
 
+//------------------------------------------------------------------------------
+function commentCreate(req, res){
+  // const Comment = Tvshow.comment.id(req.params.commentId);// trying to get the comment individually req not defined
+  // // req.body.user = req.currentUser;
+  // Comment
+  //   .findById(req.params.id)
+  //   .exec()
+  //   .then(tvshow => {
+  //     tvshow.comment.push(req.body);
+  //     return tvshow.save();
+  //   });
+  // // add a catch error after here ?
+  Film
+    .findById(req.params.id)
+    .exec()
+    .then(show => {
+      req.body.user = req.currentUser;
+
+      Review
+        .create(req.body)
+        .then(review => {
+          show.reviews.push(review);
+          return show.save();
+        })
+        .then(show => {
+          res.redirect(`/tvshows/${show._id}`);
+        });
+    });
+}
+
+//------------------------------------------------------------------------------
+function commentDelete(req, res) {
+  Film
+    .findById(req.params.showId)
+    .exec()
+    .then(show => {
+      const review = show.reviews.id(req.params.reviewId);
+      review.remove();
+      return show.save();
+    })
+    .then(show => res.redirect(`/tvshows/${show._id}`));
+
+}
+
 // ------Exporting all the controllers so they can communicate in the routes-----
 
 module.exports = {
@@ -98,5 +144,7 @@ module.exports = {
   new: filmsNew,
   create: filmsCreate,
   edit: filmsEdit,
-  update: filmsUpdate
+  update: filmsUpdate,
+  commentNew: commentCreate,
+  commentDelete: commentDelete
 };
