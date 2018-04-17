@@ -6,6 +6,7 @@ const router = require('express').Router();
 const films = require('../controllers/films');
 const registrations = require('../controllers/registrations');
 const sessions = require('../controllers/sessions');
+const users = require('../controllers/users');
 
 // -------------------Only show content if user is signed in---------------------
 
@@ -46,9 +47,13 @@ router.route('/films/:id/edit')
 // -----------------------------Users Resource-----------------------------------
 
 
+router.route('/users/:id') //Defining a dynamic segment: a part of the URL will change. This bit is sending the id we've navigated to to the controller. The ID is taken from index.ejs.
+  .get(users.show)
+  // .delete(users.delete)
+  .put(users.update);
 
-router.route('/sessions/:id/edit')
-  .get(sessions.edit);
+router.route('/users/:id/edit')
+  .get(users.edit);
 
 
 // ------------------------------------------------------------------------------

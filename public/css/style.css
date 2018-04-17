@@ -26,7 +26,7 @@ body{
 
 .addFilm {
     border: solid limeGreen 2px;
-    background-color: rgba(0,0,0,0.0);
+    background-color: white;
 }
 
 .filmWidth {
@@ -95,7 +95,7 @@ nav .navarrowwrapper {
 
 .name {
     color: black;
-    width: 15%;
+    width: 50%;
     float: right;
 }
 
@@ -221,7 +221,7 @@ h2 {
     font-size: 16px;
     color: grey;
     line-height: 22px;
-    background-color: #CCCCCC;
+    background-color: #F2F2F2;
     padding: 9px 16px;
 }
 
@@ -229,4 +229,13 @@ h2 {
     padding-top: 20px;
     color: #fff;
     background-color: #2B2B2B;
+}
+
+.fixed-action-btn {
+    position: absolute;
+    left: 100px;
+    bottom: 23px;
+    padding-top: 15px;
+    margin-bottom: 0;
+    z-index: 0;
 }

@@ -8,18 +8,19 @@
       </div>
     </div>
   <% } %>
-  <h2>Sign up</h2>
-  <form class="col l12" action="/signup" method="post">
-    <div class="input-field col l12">
-      <input type="text" name="username" id="username_field">
+  <h2>Account</h2>
+  <form class="col l12" action="/users/<%= user.id%>" method="post">
+    <input type="hidden" name="_method" value="PUT">
+      <div class="input-field col l12">
+      <input type="text" name="username" id="username_field" value="<%= locals.user.username %>">
       <label for="username_field">Username</label>
     </div>
     <div class="input-field col l12">
-      <input type="email" name="email" id="email_field" required>
+      <input type="email" name="email" id="email_field" value="<%= locals.user.email %>">
       <label for="email_field">Email</label>
     </div>
     <div class="input-field col l12">
-      <input type="url" name="photo" id="photo_field" >
+      <input type="url" name="photo" id="photo_field" value="<%= locals.user.photo %>">
       <label for="photo_field">Profile Picture</label>
     </div>
     <%# <div class="input-field col l12">

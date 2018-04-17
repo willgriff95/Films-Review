@@ -31,7 +31,6 @@ function createRoute(req, res) {
     });
 }
 
-
 // -------------------Controller (function) to create new film-------------------
 
 function editRoute(req, res) {
