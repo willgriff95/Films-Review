@@ -5,30 +5,31 @@
     <a href="/" class="left logo">REVU</a>
       <% if(locals.isLoggedIn) { %>
         <ul id="nav-mobile" class="left hide-on-med-and-down">
-        <li><a class="left black-text text-darken-2" href="/discover">Discover</a></li>
-        <li><a class="left black-text text-darken-2" href="/reviews">Your Reviews</a></li>
-        <li><a class="left black-text text-darken-2" href="/films">Films</a></li>
-        <li><a class="left black-text text-darken-2" href="/films/new">Add Film</a></li>
+          <li><a class="left black-text text-darken-2" href="/films">Films</a></li>
         </ul>
-        <ul class="userSignIn right hide-on-med-and-down">
-          <!-- Dropdown Trigger -->
+        <ul class="arrow right hide-on-med-and-down">
           <a class="userSignIn2 dropdown-trigger black-text text-darken-2"  data-target="dropdown1">
-          <li class="name" ><%= locals.user.username %></li>
+            <i class="arrow-main material-icons right">arrow_drop_down_circle</i>
+          </a>
+          <ul class="name" ><%= locals.user.username %></ul>
+
           <% if(locals.user.photo === '') { %>
             <li><img class="profilePicture" src="https://i.imgur.com/pxca5Js.jpg"></li>
           <% } else { %>
             <li><img class="profilePicture" src="<%= locals.user.photo %>"></li>
             <% } %>
-          <i class="material-icons right">arrow_drop_down</i></a>
         </ul>
-        <ul id="dropdown1" class="right dropdown-content">
-          <li><a href="/logout">Log Out</a></li>
+        <ul id="dropdown1" class="right dropdown-content" style="width: 100px">
+          <li class="dropdownMain">
+            <a href="/sessions/:id/edit">Account</a>
+            <a href="/logout">Log Out</a>
+          </li>
         </ul>
-          <% } else { %>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <% } else { %>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><a class="right black-text text-darken-2" href="/signup">Sign Up</a></li>
             <li><a class="right black-text text-darken-2" href="/signin">Sign In</a></li>
-            </ul>
-          <% } %>
+          </ul>
+        <% } %>
   </div>
 </nav>

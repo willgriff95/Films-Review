@@ -20,14 +20,37 @@ body{
     width: 85%;
 }
 
+.dropdownMain {
+    float: right;
+}
+
+.addFilm {
+    border: solid limeGreen 2px;
+    background-color: rgba(0,0,0,0.0);
+}
+
 .filmWidth {
  width: 250px;
 }
 
+.arrow {
+  width: 200px;
+}
+/* .arrow-main {
+  margin-top: -50px;
+} */
 nav .nav-wrapper {
     /* height: 100%; */
     padding-left: 5%;
+    padding-right: 7%;
 
+
+}
+
+nav .navarrowwrapper {
+    position: relative;
+    height: 100%;
+    padding-right: 7%;
 }
 
 .card-image{
@@ -71,7 +94,9 @@ nav .nav-wrapper {
 }
 
 .name {
-    width: 75%;
+    color: black;
+    width: 15%;
+    float: right;
 }
 
 .userSignIn{
@@ -83,6 +108,10 @@ nav .nav-wrapper {
   width: 100%;
 }
 
+nav {
+  box-shadow: none;
+}
+
 nav ul.left {
     float: left;
     left: 20%;
@@ -92,7 +121,7 @@ nav ul.left {
 .profilePicture {
     width: 60px;
     top: 50%;
-    right: 5%;
+    right: 2%;
     position: absolute;
     height: 60px;
     border-radius: 60px;
@@ -102,16 +131,20 @@ nav ul li {
     -webkit-transition: background-color .3s;
     transition: background-color .3s;
     float: left;
+    color: white;
+
 
 }
 nav ul li:hover {
   /* border-radius: 10px 10px 0px 0px; */
   background-color: lightGrey;
+  color: white;
 
 }
 nav ul a:hover {
   /* border-radius: 10px 10px 0px 0px; */
   background-color: lightGrey;
+  color: white;
 
 }
 
@@ -131,6 +164,22 @@ nav ul a:hover {
     margin: 0 auto;
     position: relative;
 }
+.plusFilm {
+    height: 30px;
+    width: 30px;
+    padding-left: 4px;
+    padding-top: 6px;
+    font-size: 14px;
+    letter-spacing: 4px;
+    top: 175px;
+    color: white;
+    overflow: overlay;
+    background-color: limeGreen;
+    border-radius: 20px;
+    text-align: center;
+    margin: 0 auto;
+    position: relative;
+}
 h2 {
     font-size: 2rem;
     line-height: 110%;
@@ -145,15 +194,35 @@ h2 {
   font-size: 15px;
   text-transform: uppercase;
 }
+.dropdown-content li {
+  width: 100%;
+}
 
+#dropdown1 {
+  width:100px;
+  top: -65px;
+  position: absolute;
+}
+
+
+.dropdown-content {
+      width: 100px;
+      border-radius: 20px;
+      right: 0;
+      top: 0px;
+      height: 80px;
+      transform-origin: 0px 0px 0px;
+      opacity: 1;
+      transform: scaleX(1) scaleY(1);
+  }
 
 
 .dropdown-content li>a, .dropdown-content li>span {
     font-size: 16px;
-    color: black;
+    color: grey;
     line-height: 22px;
-    background-color: lightGrey;
-    padding: 14px 16px;
+    background-color: #CCCCCC;
+    padding: 9px 16px;
 }
 
 .page-footer {

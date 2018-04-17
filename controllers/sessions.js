@@ -31,12 +31,38 @@ function createRoute(req, res) {
     });
 }
 
+
+// -------------------Controller (function) to create new film-------------------
+
+function editRoute(req, res) {
+  User
+    .findById(req.params.id) // This is only usable because we have the body-parser
+    // .populate('photos') // Why is this necessary here?
+    .exec()
+    .then(user => res.render('sessions/edit', {user}));
+}
+
+
 function deleteRoute(req, res) {
   return req.session.regenerate(() => res.redirect('/'));
 }
 
+
+// // -------------------Controller (function) to edit user-------------------------
+//
+// function userEdit(req, res) {
+//   User
+//     .findById(req.params.id) // This is only usable because we have the body-parser
+//
+//     // .populate('photos') // Why is this necessary here?
+//     .exec()
+//     .then(film => res.render('users/edit', {user}));
+// }
+
+
 module.exports = {
   new: newRoute,
   create: createRoute,
-  delete: deleteRoute
+  delete: deleteRoute,
+  edit: editRoute
 };

@@ -20,6 +20,7 @@ function createRoute(req, res){
     })
     // --If the entered fields are not the same as the model then throw an error-
     .catch((err) => {
+      res.BadRequest('signup', err.toString());
       if(err.name === 'ValidationError'){ //This is just what mongodb calls a validation error - if the stuff the user input does not match the criteria set out in the model.
         req.flash('danger', 'You must be logged in');
         return res.status(400).render('registrations/index');

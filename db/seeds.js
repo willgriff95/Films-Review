@@ -7,7 +7,7 @@ mongoose.connect(databaseURI);
 
 const Film = require('../models/film');
 
-// Film.collection.drop();
+Film.collection.drop();
 
 Film.create([{
   title: 'The Godfather',
@@ -19,7 +19,7 @@ Film.create([{
   title: 'The Shawshank Redemption',
   genre: 'Crime, Drama',
   year: 1994,
-  photo: 'https://ia.media-imdb.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_UY209_CR0,0,140,209_AL_.jpg',
+  photo: 'https://vignette.wikia.nocookie.net/cinemorgue/images/5/50/The-Shawshank-Redemption_poster_goldposter_com_48.jpg/revision/latest?cb=20161030023729',
   rating: 9.3
 },{
   title: 'Forrest Gump',
@@ -27,9 +27,8 @@ Film.create([{
   year: 1994,
   photo: 'https://ia.media-imdb.com/images/M/MV5BNWIwODRlZTUtY2U3ZS00Yzg1LWJhNzYtMmZiYmEyNmU1NjMzXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_UY209_CR2,0,140,209_AL_.jpg',
   rating: 8.8
-}]);
+}])
 
-// .then(films => console.log(`${films.length} created`));
-
-// .catch(err => console.log(err));
-// .finally(()=> mongoose.connection.close());
+  .then(films => console.log(`${films.length} created`))
+  .catch(err => console.log(err))
+  .finally(()=> mongoose.connection.close());
