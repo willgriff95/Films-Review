@@ -10,13 +10,92 @@ body{
   font-weight: 400;
   color: white;
   font-size: 20px;
-  background-color: #393939;
+  background-color: #1F1F1F;
 }
 
+.filmTitle{
+  font-size: 20px;
+}
+.filmGenre{
+  font-size: 20px;
+}
+.filmRating{
+  font-size: 20px;
+}
 nav ul a.btn, nav ul a.btn-large, nav ul a.btn-small, nav ul a.btn-large, nav ul a.btn-flat, nav ul a.btn-floating {
     margin-top: 20px;
+    /* border-radius: 15px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px; */
     margin-left: 15px;
     margin-right: 15px;
+}
+
+.content {
+    top: -22px;
+    left: 90px;
+    font-size: 13px;
+    font-family: 10px;
+    width: 83%;
+    padding-top: 1%;
+    position: relative;
+}
+.cross {
+    position: relative;
+    float: right;
+    top: 20px;
+    width: 5%;
+    /* margin-right: 0px; */
+}
+
+
+.backgroundImage {
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    background-repeat: no-repeat;
+    height: 100%;
+    top: 60px;
+    position: absolute;
+    overflow: visible;
+    z-index: 1;
+}
+
+.backgroundImage:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: linear-gradient(rgba(31,31,31,1),rgba(0,0,0,0.3));
+}
+
+
+.closeButton{
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
+.userName {
+    left: 90px;
+    top: 25%;
+    width: 80%;
+    padding-top: 1%;
+    position: relative;
+    /* padding-left: 10%; */
+}
+
+.error {
+  border-radius: 10px;
+  width: 40%;
 }
 
 .inputheight{
@@ -33,9 +112,28 @@ nav ul a.btn, nav ul a.btn-large, nav ul a.btn-small, nav ul a.btn-large, nav ul
 .newRevu{
   margin-right: 20px;
 }
+.editDelete {
+    width: 199px;
+    float: right;
+    top: 180px;
+    position: relative;
+    /* height: 200px; */
+}
+
+.filmContent {
+    width: 20%;
+    height: 300px;
+    left: 30%;
+    position: absolute;
+}
+.topPaddingFilms{
+  padding-top: 50px;
+}
 .margins {
-    width: 85%;
-    margin: 0 auto;
+  width: 70%;
+  margin: 0 auto;
+  z-index: 1000;
+  position: relative;
 }
 .signupMargins {
     width: 55%;
@@ -58,11 +156,37 @@ nav i.material-icons {
   position: relative;
 } */
 
-.comments{
-  height: 100%;
+#textarea2 {
+  outline: none;
+  border-radius: 20px;
+  margin: 0px;
+  width: 100%;
+  height: 130px;
+      padding: 10px;
+  z-index: auto;
+  position: relative;
+  line-height: 23px;
+  font-size: 20px;
+  transition: none;
+  background: transparent !important;
+}
+.comments {
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 60px;
+
+}
+.reviewButton {
+    border-radius: 50px;
+    position: relative;
+    right: 0;
+    float: right;
 }
 .addFilm {
     /* border: solid limeGreen 2px; */
+    width: 200px;
+    height: 300px;
     background-color: rgba(255,255,255,0.01);
 }
 
@@ -71,9 +195,14 @@ nav i.material-icons {
 }
 
 .filmWidth {
- width: 250px;
+ width: 200px;
 }
 
+.errorPosition{
+  top: 35px;
+  width: 40%;
+  position: absolute;
+}
 .arrow {
   width: 200px;
 }
@@ -84,10 +213,20 @@ nav .nav-wrapper {
     /* height: 100%; */
     padding-left: 5%;
     padding-right: 7%;
+    z-index: 1000;
 
 
 }
 
+ul:not(.browser-default)>li {
+    /* width: 50px; */
+    list-style-type: none;
+    float: right;
+}
+
+.editButton{
+  margin-right: 20px;
+}
 nav .navarrowwrapper {
     position: relative;
     height: 100%;
@@ -111,11 +250,16 @@ nav .navarrowwrapper {
     margin-bottom: 20px; */
 }
 
+input {
+  color: white;
+}
+
 .genre {
     font-size: 0.7em;
     line-height: 110%;
+    padding-top: 5px;
     margin: 0;
-    font-family: 'circe-light';
+    color: cornflowerblue;
 }
 .filmText {
     font-size: 1em;
@@ -136,6 +280,16 @@ nav .navarrowwrapper {
 
 .rowHeight{
   height: 375px;
+}
+.card {
+    position: relative;
+    margin: .5rem 0 1rem 0;
+    background-color: #1A1A1A;
+    -webkit-transition: -webkit-box-shadow .25s;
+    transition: -webkit-box-shadow .25s;
+    transition: box-shadow .25s;
+    transition: box-shadow .25s, -webkit-box-shadow .25s;
+    border-radius: 20px;
 }
 
 .name {
@@ -159,16 +313,17 @@ nav .navarrowwrapper {
 
 nav {
   box-shadow: none;
-  background: linear-gradient(#1F1F1F, #393939);
+  background: linear-gradient(#393939, #1F1F1F);
 }
 
 .discover{
   background-color: #343434;
 }
 
+
 nav ul.left {
     float: left;
-    left: 20%;
+    left: 15%;
     position: absolute;
     /* top: 20%; */
 }
@@ -189,21 +344,31 @@ nav ul li {
 
 
 }
-nav ul li:hover {
+.films {
+    font-family: 'circe';
+    font-size: 20px;
+    color: lightGray;
+}
+
+nav ul li a:hover {
   /* border-radius: 10px 10px 0px 0px; */
-  background-color: lightGrey;
   color: white;
 
 }
-nav ul a:hover {
+nav ul div a:hover {
   /* border-radius: 10px 10px 0px 0px; */
-  background-color: lightGrey;
   color: white;
 
+}
+.button a {
+    position: relative;
+    color: #FFF;
+    padding-top: 7px;
+    font-size: 17px;
 }
 
 .rating {
-    height: 30px;
+    height: 25px;
     width: 20%;
     padding-left: 2px;
     padding-top: 5px;
@@ -309,8 +474,8 @@ h2 {
 
 .buttoncontainer {
   display: flex;
-  width: 100%;
-  height: 100%;
+  width: 200px;
+  height: 300px;
   justify-content: center;
   align-items: center;
 }
@@ -333,6 +498,14 @@ h2 {
   outline: none;
 }
 
+.profilePictureReviewPosition {
+    width: 60px;
+    top: 13px;
+    left: 20px;
+    position: absolute;
+    height: 60px;
+    border-radius: 60px;
+}
 .button a {
   position: relative;
   color: #FFF;

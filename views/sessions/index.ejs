@@ -2,11 +2,13 @@
 <div class="signupMargins">
   <div class="row">
   <% if(messages.danger){ %>
-    <div class="col s12 l12">
-      <div class="card red lighten-3">
-        <div class="card-content red-text">
-          <span class="card-title"><%= messages.danger %></span>
+    <div class="errorPosition col s12 l12">
+      <div class="error card red lighten-3">
+        <div class="red-text valign-wrapper">
+          <div class="card-content red-text material-icons">error_outline</div> <%= messages.danger %>
+
         </div>
+
       </div>
     </div>
   <% } %>
@@ -21,7 +23,7 @@
       <label for="password_field">Password</label>
     </div>
     <div class="input-field col l12">
-      <button class="green btn">Signin</button>
+      <button class="blue btn">Signin</button>
       <a class="right" href="/signup">Sign up now.</a>
       <div class="right newRevu">New to Revu?</div>
     </div>

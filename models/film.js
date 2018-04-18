@@ -15,6 +15,7 @@ const filmSchema = new mongoose.Schema({
   genre: {type: String, required: true},
   // year: String,
   photo: String,
+  backgroundImage: String,
   rating: {type: Number, min: 1, max: 10, default: 3},
   reviews: [reviewSchema],
   user: {type: mongoose.Schema.ObjectId, ref: 'User'}

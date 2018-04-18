@@ -4,11 +4,11 @@
 
 
   <% films.forEach(film => { %>
-    <div class="col s12 m4 filmWidth" style="width: 250px;">
+    <div class="col s12 m4 filmWidth" style="width: 200px;padding:10px;     box-sizing: content-box;">
         <div class="rating"><%= film.rating %></div>
         <a href="/films/<%= film._id %>"><div class="z-depth-3 card-image" style="background-image: url(<%= film.photo %>); background-repeat: no-repeat; background-position: center; background-size: cover;" >
         </div><a/>
-        <div class="black-text" style="padding: 15px;">
+        <div class="white-text" style="padding: 15px 15px 15px 0px">
           <div class="title" ><%= film.title %></div>
           <div class="genre" ><%= film.genre %></div>
         </div>
@@ -17,12 +17,12 @@
   <% }) %>
 
 
-  <div class="col s12 m4 filmWidth" style="width: 250px; padding-top: 30px;">
+  <div class="col s12 m4 filmWidth" style="width: 200px; padding-top: 40px;">
     <a href="/films/new">
     <div class="addFilm z-depth-3 card-image" href="/films/new">
         <div class="buttoncontainer" href="/films/new">
             <div class="bg" href="/films/new"></div>
-            <div class="button"><a href="/films/new" ><i class="fa fa-chevron-down" aria-hidden="true"></i></a></div>
+            <div class="button"><a href="/films/new" ><i class="material-icons">add</i></a></div>
       </div>
   </div>
 </a>
