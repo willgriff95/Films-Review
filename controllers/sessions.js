@@ -48,15 +48,6 @@ function deleteRoute(req, res) {
 
 
 // // -------------------Controller (function) to edit user-------------------------
-//
-// function userEdit(req, res) {
-//   User
-//     .findById(req.params.id) // This is only usable because we have the body-parser
-//
-//     // .populate('photos') // Why is this necessary here?
-//     .exec()
-//     .then(film => res.render('users/edit', {user}));
-// }
 
 
 module.exports = {

@@ -74,8 +74,6 @@ router.route('/logout')
 //-----------------------------End authentication--------------------------------
 
 
-
-
 //------------------------Error message for incorrect URL------------------------
 
 // If any other url entered that doesn't route to one already existing then return an error message
@@ -86,7 +84,7 @@ router.route('/*').get((req, res) => {
 });
 //--------COMMENTS-------------------------------------------------------
 router.post('/films/:id/reviews', secureRoute, films.commentNew);
-router.delete('/films/:showId/reviews/:reviewId', secureRoute, films.commentDelete);
+router.delete('/films/:id/reviews/:reviewId', secureRoute, films.commentDelete);
 //------------------------------------------------------------------------------
 
 module.exports = router;

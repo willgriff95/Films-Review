@@ -1,5 +1,7 @@
 <div class="row">
+  <div class="margins">
   <h2>All Films</h2>
+
 
   <% films.forEach(film => { %>
     <div class="col s12 m4 filmWidth" style="width: 250px;">
@@ -13,8 +15,17 @@
     </div>
 
   <% }) %>
-<div class="col s12 m4 filmWidth" href="/films/new" style="width: 250px;">
-<div class="plusFilm" >+</div>
-  <a href="/films/new" ><div class="addFilm z-depth-3 card-image" ></div><a/>
+  <div class="col s12 m4 filmWidth" style="width: 250px;">
+    <a href="/films/new">
+
+    <div class="addFilm z-depth-3 card-image" href="/films/new">
+        <div class="buttoncontainer" href="/films/new">
+            <div class="bg" href="/films/new"></div>
+            <div class="button"><a href="/films/new" ><i class="fa fa-chevron-down" aria-hidden="true"></i></a></div>
+      </div>
+  </div>
+</a>
+
+
 </div>
 </div>

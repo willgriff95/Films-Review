@@ -1,14 +1,11 @@
 
-//------------Promise setup and database link-----------------------------------
-const mongoose        = require('mongoose');
-mongoose.Promise      = require('bluebird');
+const mongoose  = require('mongoose');
+mongoose.Promise = require('bluebird');
+
 const { databaseURI } = require('../config/environment');
 mongoose.connect(databaseURI);
 
-//------------Require the models------------------------------------------------
-const Film            = require('../models/film');
-// const Review          = require('../models/review');
-// const User            = require('../models/user');
+const Film = require('../models/film');
 
 Film.collection.drop();
 

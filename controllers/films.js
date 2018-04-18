@@ -91,49 +91,39 @@ function filmsDelete(req, res) {
     });
 }
 
-//------------------------------------------------------------------------------
-function commentCreate(req, res){
-  // const Comment = Tvshow.comment.id(req.params.commentId);// trying to get the comment individually req not defined
-  // // req.body.user = req.currentUser;
-  // Comment
-  //   .findById(req.params.id)
-  //   .exec()
-  //   .then(tvshow => {
-  //     tvshow.comment.push(req.body);
-  //     return tvshow.save();
-  //   });
-  // // add a catch error after here ?
+
+//----------TV Review SHOW------------------------------------------------------
+function reviewCreate(req, res){
   Film
     .findById(req.params.id)
     .exec()
-    .then(show => {
+    .then(film => {
       req.body.user = req.currentUser;
 
       Review
         .create(req.body)
         .then(review => {
-          show.reviews.push(review);
-          return show.save();
+          film.reviews.push(review);
+          return film.save();
         })
-        .then(show => {
-          res.redirect(`/tvshows/${show._id}`);
+        .then(film => {
+          res.redirect(`/films/${film._id}`);
         });
     });
 }
-
-//------------------------------------------------------------------------------
-function commentDelete(req, res) {
+//----------TV Review DELETE----------------------------------------------------
+function reviewDelete(req, res) {
   Film
     .findById(req.params.showId)
     .exec()
-    .then(show => {
-      const review = show.reviews.id(req.params.reviewId);
+    .then(film => {
+      const review = film.reviews.id(req.params.reviewId);
       review.remove();
-      return show.save();
+      return film.save();
     })
-    .then(show => res.redirect(`/tvshows/${show._id}`));
-
+    .then(film => res.redirect(`/tvfilms/${film._id}`));
 }
+//----
 
 // ------Exporting all the controllers so they can communicate in the routes-----
 
@@ -145,6 +135,6 @@ module.exports = {
   create: filmsCreate,
   edit: filmsEdit,
   update: filmsUpdate,
-  commentNew: commentCreate,
-  commentDelete: commentDelete
+  commentNew: reviewCreate,
+  commentDelete: reviewDelete
 };

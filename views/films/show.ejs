@@ -1,47 +1,52 @@
-<div class="row">
-  <h2><%= film.title %></h2>
+
+  <div class="margins">
+    <h2><%= film.title %></h2>
     <div class="col s12 m4 filmWidth">
-        <div class="z-depth-3 card-image" style="width: 250px;background-image: url(<%= film.photo %>); background-repeat: no-repeat; background-position: center; background-size: cover;" >
-        </div>
-        <div class="black-text" style="padding: 15px;">
-        </div>
+      <div class="z-depth-3 card-image" style="width: 250px;background-image: url(<%= film.photo %>); background-repeat: no-repeat; background-position: center; background-size: cover;" ></div>
+      <div class="black-text" style="padding: 15px;"></div>
     </div>
-</div>
-<form method="POST" action="/films/<%= film._id %>">
-<div class="fixed-action-btn">
-  <a class="btn-floating btn-large green">
-    <i class="large material-icons">more_horiz</i>
-  </a>
-  <ul>
-      <input type="hidden" name="_method" value="delete">
-    <li><a class="btn-floating red"><button class="btn-floating red"><i class="material-icons">delete</i></button></a></li>
-    <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
-    <li><a href="/films/<%= film._id %>/edit" class="btn-floating blue"><i class="material-icons">mode_edit</i></a></li>
-  </ul>
-</div>
-<%# //----------SHOW Reviews------------------------------------------------- %>
-</form>
-  <% film.reviews.forEach(review => { %>
-      <div class="col s16 m16">
-      <div class="card">
-        <div class="card-image">
-          <img src="<%= review.url %>">
+    <form method="POST" action="/films/<%= film._id %>">
+      <div class="fixed-action-btn">
+        <a class="btn-floating btn-large green">
+          <i class="large material-icons">more_horiz</i>
+        </a>
+        <%# <iframe width="560" height="315" src="https://www.youtube.com/embed/OiTiKOy59o4?rel=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> %>
+        <ul>
+          <input type="hidden" name="_method" value="delete">
+          <li><a class="btn-floating red"><button class="btn-floating red"><i class="material-icons">delete</i></button></a></li>
+          <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
+          <li><a href="/films/<%= film._id %>/edit" class="btn-floating blue"><i class="material-icons">mode_edit</i></a></li>
+        </ul>
+      </div>
+    </form>
+  <div class='row2'>
+    <div class="comments">
+      <p>Comments</p>
+      <form class="writePost col l12" action="/films/<%= film._id %>/reviews" method="post">
+        <div class="input-field col l12">
+          <input type="text" name="content" id="comment_field" >
+          <label for="comment_field">Write a review</label>
         </div>
+        <div class="input-field col l12">
+          <button class="green btn">Post</button>
+        </div>
+      </form>
+    </div>
+<%# //----------------------------SHOW Reviews---------------------------------- %>
+  <% film.reviews.forEach(review => { %>
+      <div class="commentPost col s16 m16">
+      <div class="card">
           <div class="card-content">
             <ul>
               <%= review.content %>
-              <% if(review.user) {%>
-              <%= review.user.username %>
-              <% } %>
             </ul>
         </div>
-        <div class="card-action">
           <form method ="POST"action ="/films/<%= film._id %>/reviews/<%= review._id %>">
           <input type="hidden" name="_method" value="DELETE">
           <button class="red btn">Deletion</button>
           </form>
-        </div>
       </div>
     </div>
   <% }) %>
-</form>
+    </div>
+  </div>

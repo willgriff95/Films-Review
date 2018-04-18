@@ -1,4 +1,5 @@
 <div class="row">
+  <div class="margins">
   <h2>Edit <%= film.title %></h2>
   <form class="col l12" action="/films/<%= film._id %>" method="post">
     <input type="hidden" name="_method" value="PUT">
@@ -22,4 +23,5 @@
       <button class="green btn">Edit Film</button>
     </div>
   </form>
+</div>
 </div>
