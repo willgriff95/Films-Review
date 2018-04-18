@@ -1,3 +1,5 @@
+<div class="signupMargins">
+
 <div class="row">
   <% if(messages.danger){ %>
     <div class="col s12 l12">
@@ -10,30 +12,31 @@
   <% } %>
   <h2>Sign up</h2>
   <form class="col l12" action="/signup" method="post">
-    <div class="input-field col l12">
+    <div class="inputheight input-field col l12">
       <input type="text" name="username" id="username_field">
       <label for="username_field">Username</label>
     </div>
-    <div class="input-field col l12">
+    <div class="inputheight input-field col l12">
       <input type="email" name="email" id="email_field" required>
       <label for="email_field">Email</label>
     </div>
-    <div class="input-field col l12">
+    <div class="inputheight input-field col l12">
       <input type="url" name="photo" id="photo_field" >
       <label for="photo_field">Profile Picture</label>
     </div>
-    <div class="input-field col l12">
+    <div class="inputheight input-field col l12">
       <input type="password" name="password" id="password_field" required>
       <label for="password_field">Password</label>
     </div>
-    <div class="input-field col l12">
+    <div class="inputheight input-field col l12">
       <input type="password" name="passwordConfirmation" id="password_confirmation_field" required>
       <label for="password_confirmation_field">Password Confirmation</label>
     </div>
 
-    <div class="input-field col l12">
-      <button class="green btn"> Signup</button>
+    <div class="signupheight input-field col l12">
+      <button class="green btn">Sign up</button>
     </div>
   </form>
 
+</div>
 </div>

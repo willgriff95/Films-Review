@@ -2,7 +2,6 @@
 // -------------The name of the file for a controller is always plural-----------
 
 const Film = require('../models/film');
-const Review = require('../models/review');
 
 
 function filmsIndex(req, res) {
@@ -22,7 +21,7 @@ function filmsIndex(req, res) {
 function filmsShow(req, res){
   Film
     .findById(req.params.id) // This is only usable because we have the body-parser
-    .populate('user')
+    .populate('user reviews.user')
     .exec()
     .then(film => res.render('films/show', {film}))
     .catch(err => console.log(err));
@@ -99,29 +98,29 @@ function reviewCreate(req, res){
     .exec()
     .then(film => {
       req.body.user = req.currentUser;
-
-      Review
-        .create(req.body)
-        .then(review => {
-          film.reviews.push(review);
-          return film.save();
-        })
-        .then(film => {
-          res.redirect(`/films/${film._id}`);
-        });
+      film.reviews.push(req.body);
+      return film.save();
+    })
+    .then(film => {
+      res.redirect(`/films/${film.id}`);
+    })
+    .catch(err => {
+      console.log('inside catch',err);
+      return res.sendStatus(500);
     });
 }
 //----------TV Review DELETE----------------------------------------------------
 function reviewDelete(req, res) {
   Film
-    .findById(req.params.showId)
+    .findById(req.params.id)
     .exec()
     .then(film => {
+      console.log(film);
       const review = film.reviews.id(req.params.reviewId);
       review.remove();
       return film.save();
     })
-    .then(film => res.redirect(`/tvfilms/${film._id}`));
+    .then(film => res.redirect(`/films/${film._id}`));
 }
 //----
 

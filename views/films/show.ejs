@@ -35,18 +35,24 @@
 <%# //----------------------------SHOW Reviews---------------------------------- %>
   <% film.reviews.forEach(review => { %>
       <div class="commentPost col s16 m16">
-      <div class="card">
-          <div class="card-content">
+        <div class="card">
+          <div class="review">
             <ul>
               <%= review.content %>
+              <%= review.user.username %>
             </ul>
+            <% if(locals.isLoggedIn && review.user && review.user.id === locals.user.id) { %>
+            <form action ="/films/<%= film._id %>/reviews/<%= review.id %>" method ="post">
+            <input type="hidden" name="_method" value="delete">
+            <button type="submit" class="red btn">Delete</button>
+            </form>
+            <% } %>
+
+          </div>
         </div>
-          <form method ="POST"action ="/films/<%= film._id %>/reviews/<%= review._id %>">
-          <input type="hidden" name="_method" value="DELETE">
-          <button class="red btn">Deletion</button>
-          </form>
       </div>
-    </div>
   <% }) %>
+
+
     </div>
   </div>

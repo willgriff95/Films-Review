@@ -1,5 +1,4 @@
 .logo {
-    font-family: 'circe rounded';
     font-weight: 800;
     letter-spacing: 10px;
     color: black;
@@ -7,19 +6,44 @@
     margin-top: 10px;
 }
 body{
-  font-family: 'circe';
+  font-family: 'Circe-Light';
   font-weight: 400;
-  color: black;
+  color: white;
   font-size: 20px;
-  background-color: #F2F2F2;
+  background-color: #393939;
+}
+
+nav ul a.btn, nav ul a.btn-large, nav ul a.btn-small, nav ul a.btn-large, nav ul a.btn-flat, nav ul a.btn-floating {
+    margin-top: 20px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.inputheight{
+  height: 35px;
+}
+.signupheight{
+  height: 55px;
+  margin-top: 40px;
+
 }
 .copyright {
     font-size: 12px;
 }
-
+.newRevu{
+  margin-right: 20px;
+}
 .margins {
     width: 85%;
     margin: 0 auto;
+}
+.signupMargins {
+    width: 55%;
+    margin: 0 auto;
+}
+
+nav i.material-icons {
+    font-size: 20px;
 }
 
 .dropdownMain {
@@ -38,8 +62,12 @@ body{
   height: 100%;
 }
 .addFilm {
-    border: solid limeGreen 2px;
-    background-color: white;
+    /* border: solid limeGreen 2px; */
+    background-color: rgba(255,255,255,0.01);
+}
+
+.review{
+
 }
 
 .filmWidth {
@@ -106,10 +134,18 @@ nav .navarrowwrapper {
     height: 10%;
 }
 
+.rowHeight{
+  height: 375px;
+}
+
 .name {
-    color: black;
-    width: 50%;
+  font-family: 'Circe-Light';
+  font-weight: 400;
+  color: white;
+  font-size: 14px;
+    width: 70%;
     float: right;
+    text-align: right;
 }
 
 .userSignIn{
@@ -123,6 +159,11 @@ nav .navarrowwrapper {
 
 nav {
   box-shadow: none;
+  background: linear-gradient(#1F1F1F, #393939);
+}
+
+.discover{
+  background-color: #343434;
 }
 
 nav ul.left {
@@ -196,7 +237,7 @@ nav ul a:hover {
 h2 {
     font-size: 2rem;
     line-height: 110%;
-    margin: 4.5rem 0 3rem 0;
+    margin: 3.5rem 0 2rem 0;
 }
 
 .dropdown-trigger {
@@ -227,14 +268,15 @@ h2 {
       transform-origin: 0px 0px 0px;
       opacity: 1;
       transform: scaleX(1) scaleY(1);
+      background-color: black;
   }
 
 
 .dropdown-content li>a, .dropdown-content li>span {
     font-size: 16px;
-    color: grey;
+    color: lightGray;
     line-height: 22px;
-    background-color: #F2F2F2;
+    background-color: #2C2C2C;
     padding: 9px 16px;
 }
 
@@ -243,6 +285,10 @@ h2 {
     color: #fff;
     background-color: #2B2B2B;
 }
+.btn{
+  font-family: 'Circe-Light';
+  font-weight: 400;
+  color: white;}
 
 .fixed-action-btn {
     position: relative;

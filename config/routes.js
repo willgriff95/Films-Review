@@ -24,7 +24,13 @@ function secureRoute(req, res, next){
 
 router.get('/', (req, res) => res.render('home'));
 
+router.route('/')
+  .get(films.index)
+  .post(films.create);
+
 // -------------------------------Films Resource---------------------------------
+
+
 
 router.route('/films')
   .get(films.index)
@@ -84,7 +90,9 @@ router.route('/*').get((req, res) => {
 });
 //--------COMMENTS-------------------------------------------------------
 router.post('/films/:id/reviews', secureRoute, films.commentNew);
-router.delete('/films/:id/reviews/:reviewId', secureRoute, films.commentDelete);
+
+router.route('/films/:id/reviews/:reviewId')
+  .delete(films.commentDelete);
 //------------------------------------------------------------------------------
 
 module.exports = router;

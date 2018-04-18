@@ -1,15 +1,17 @@
 <!-- <% locals.user %> -->
 
 <nav>
-  <div class="nav-wrapper white">
-    <a href="/" class="left logo"><img src="../images/logo.svg" height="40px" alt=""></a>
+  <div class="nav-wrapper">
+    <a href="/" class="left logo">
+      <%# <img src="../images/logo.svg" height="40px" alt=""> %>
+    </a>
       <% if(locals.isLoggedIn) { %>
         <ul id="nav-mobile" class="left hide-on-med-and-down">
-          <li><a class="left black-text text-darken-2" href="/films">Films</a></li>
+          <li><a class="left white-text text-darken-2" href="/films">Films</a></li>
         </ul>
         <ul class="arrow right hide-on-med-and-down">
-          <a class="userSignIn2 dropdown-trigger black-text text-darken-2"  data-target="dropdown1">
-            <i class="arrow-main material-icons right">arrow_drop_down_circle</i>
+          <a class="userSignIn2 dropdown-trigger white-text text-darken-2"  data-target="dropdown1">
+            <i class="arrow-main material-icons right">keyboard_arrow_down</i>
           </a>
           <ul class="name" ><%= locals.user.username %></ul>
 
@@ -19,16 +21,18 @@
             <li><img class="profilePicture" src="<%= locals.user.photo %>"></li>
             <% } %>
         </ul>
-        <ul id="dropdown1" class="right dropdown-content" style="width: 100px">
+        <ul id="dropdown1" class="right dropdown-content" style="background-color: black">
           <li class="dropdownMain">
             <a href="/users/<%= locals.user._id %>/edit">Account</a>
             <a href="/logout">Log Out</a>
           </li>
         </ul>
         <% } else { %>
+          <ul id="nav-mobile" class="left hide-on-med-and-down">
+          </ul>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a class="right black-text text-darken-2" href="/signup">Sign Up</a></li>
-            <li><a class="right black-text text-darken-2" href="/signin">Sign In</a></li>
+            <li><a class="signInButton waves-effect waves-light btn right white-text text-darken-2" href="/signin">Sign In</a></li>
+
           </ul>
         <% } %>
   </div>
