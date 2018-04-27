@@ -8,6 +8,9 @@
   },
   "author": "will",
   "license": "ISC",
+  "scripts": {
+    "start": "node index"
+  },
   "dependencies": {
     "bcrypt": "^1.0.2",
     "bluebird": "^3.4.7",
