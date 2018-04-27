@@ -12,12 +12,28 @@
       <label for="genre_field">Genre</label>
     </div>
     <div class="input-field col l12">
+      <input type="text" name="director" id="director_field" value="<%= film.director %>">
+      <label for="director_field">Director/s</label>
+    </div>
+    <div class="input-field col l12">
+      <input type="text" name="writers" id="writers_field" value="<%= film.writers %>">
+      <label for="writers_field">Writers</label>
+    </div>
+    <div class="input-field col l12">
+      <input type="text" name="stars" id="stars_field" value="<%= film.stars %>">
+      <label for="stars_field">Stars</label>
+    </div>
+    <div class="input-field col l12">
       <input type="url" name="photo" id="photo_field" value="<%= film.photo %>">
       <label for="photo_field">Photo</label>
     </div>
     <div class="input-field col l12">
-      <input type="url" name="backgroundImage" id="backgroundImage_field">
+      <input type="url" name="backgroundImage" id="backgroundImage_field" value="<%= film.backgroundImage %>">
       <label for="backgroundImage_field">Background Image</label>
+    </div>
+    <div class="input-field col l12">
+      <input type="url" name="trailer" id="trailer_field" value="<%= film.trailer %>">
+      <label for="trailer_field">Trailer</label>
     </div>
     <div class="input-field col l12">
       <input type="number" name="rating" id="rating_field" value="<%= film.rating %>">

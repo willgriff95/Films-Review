@@ -27,7 +27,7 @@ function createRoute(req, res) {
       req.session.userId = user.id;
       console.log(req.session);
 
-      res.redirect('/');
+      res.redirect('/films');
     });
 }
 

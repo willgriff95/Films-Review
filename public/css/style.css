@@ -14,13 +14,41 @@ body{
 }
 
 .filmTitle{
-  font-size: 20px;
+  font-size: 40px;
 }
 .filmGenre{
   font-size: 20px;
+  color: cornflowerblue;
+
 }
-.filmRating{
-  font-size: 20px;
+.filmRating {
+    font-size: 20px;
+    float: left;
+    width: 20px;
+    color: orange;
+}
+
+.filmDirector {
+    position: relative;
+    top: 30px;
+    left: -40px;
+    padding-left: 0px;
+}
+.filmWriters{
+  position: relative;
+  top: 30px;
+  font-size: 15px;
+}
+.filmStars{
+  position: relative;
+  top: 30px;
+  font-size: 15px;
+}
+.filmTrailer {
+    top: 70px;
+    width: 440px;
+    height: 195px;
+    position: relative;
 }
 nav ul a.btn, nav ul a.btn-large, nav ul a.btn-small, nav ul a.btn-large, nav ul a.btn-flat, nav ul a.btn-floating {
     margin-top: 20px;
@@ -121,19 +149,19 @@ nav ul a.btn, nav ul a.btn-large, nav ul a.btn-small, nav ul a.btn-large, nav ul
 }
 
 .filmContent {
-    width: 20%;
+    width: 50%;
     height: 300px;
-    left: 30%;
+    left: 35%;
     position: absolute;
 }
 .topPaddingFilms{
   padding-top: 50px;
 }
 .margins {
-  width: 70%;
-  margin: 0 auto;
-  z-index: 1000;
-  position: relative;
+    width: 70%;
+    margin: 0 auto;
+    z-index: 10;
+    position: relative;
 }
 .signupMargins {
     width: 55%;
@@ -151,11 +179,19 @@ nav i.material-icons {
     top: 100px;
     position: relative;
 } */
-/* .commentPost{
-  top: 100px;
-  position: relative;
-} */
+.commentPost{
+    position: relative;
+    top: 50px;
+}
 
+.outOf10 {
+    width: 20px;
+    top: 10px;
+    left: 10px;
+    float: left;
+    position: relative;
+    font-size: 10px;
+}
 #textarea2 {
   outline: none;
   border-radius: 20px;
@@ -173,9 +209,10 @@ nav i.material-icons {
 .comments {
     height: 100%;
     width: 100%;
+    position: relative;
+    top: 70px;
     margin: 0 auto;
     margin-bottom: 60px;
-
 }
 .reviewButton {
     border-radius: 50px;
@@ -187,7 +224,7 @@ nav i.material-icons {
     /* border: solid limeGreen 2px; */
     width: 200px;
     height: 300px;
-    background-color: rgba(255,255,255,0.01);
+    /* background-color: rgba(255,255,255,0.01); */
 }
 
 .review{
@@ -195,7 +232,8 @@ nav i.material-icons {
 }
 
 .filmWidth {
- width: 200px;
+    width: 200px;
+    height: 450px;
 }
 
 .errorPosition{
@@ -311,9 +349,14 @@ input {
   width: 100%;
 }
 
-nav {
+/* nav {
   box-shadow: none;
   background: linear-gradient(#393939, #1F1F1F);
+} */
+
+nav {
+    box-shadow: none;
+    background: linear-gradient(#393939, rgba(0,0,0,0));
 }
 
 .discover{
@@ -323,7 +366,7 @@ nav {
 
 nav ul.left {
     float: left;
-    left: 15%;
+    left: 20%;
     position: absolute;
     /* top: 20%; */
 }
@@ -345,7 +388,7 @@ nav ul li {
 
 }
 .films {
-    font-family: 'circe';
+    font-family: 'circe-light';
     font-size: 20px;
     color: lightGray;
 }
@@ -353,12 +396,14 @@ nav ul li {
 nav ul li a:hover {
   /* border-radius: 10px 10px 0px 0px; */
   color: white;
+  background-color: black;
+  border: 1px black solid;
 
 }
 nav ul div a:hover {
-  /* border-radius: 10px 10px 0px 0px; */
-  color: white;
-
+    /* border-radius: 10px 10px 0px 0px; */
+    color: white;
+    background-color: rgba(255,255,255,0);
 }
 .button a {
     position: relative;

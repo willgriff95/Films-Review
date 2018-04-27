@@ -1,9 +1,6 @@
 
-
-
   <div class="topPaddingFilms margins">
     <form method="POST" action="/films/<%= film._id %>">
-        <%# <iframe width="560" height="315" src="https://www.youtube.com/embed/OiTiKOy59o4?rel=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> %>
         <ul class="editDelete">
           <input type="hidden" name="_method" value="delete">
           <li><a class="btn-floating red"><button class="btn-floating red"><i class="material-icons">delete</i></button></a></li>
@@ -14,7 +11,11 @@
       <div class="filmContent">
         <div class="filmTitle" ><%= film.title %></div >
         <div class="filmGenre" ><%= film.genre %></div >
-        <div class="filmRating" ><%= film.rating %></div >
+        <div class="filmRating" ><%= film.rating %></div ><div class="outOf10">/10</div>
+        <div class="filmDirector" >Directed by <b><%= film.director %></b></div >
+        <div class="filmWriters" >Written by <%= film.writers %></div >
+        <div class="filmStars" >Starring <%= film.stars %></div >
+        <div class="z-depth-3 filmTrailer" ><iframe width="440" height="195" src="<%= film.trailer %>" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div >
 
       </div>
       <div class="z-depth-3 card-image" style="width: 250px;background-image: url(<%= film.photo %>); background-repeat: no-repeat; background-position: center; background-size: cover;width: 250px;height: 375px;" ></div>
@@ -31,12 +32,16 @@
         </div>
       </form>
     </div>
+
 <%# //----------------------------SHOW Reviews---------------------------------- %>
   <% film.reviews.forEach(review => { %>
+    <% film.title %>
+
       <div class="commentPost col s16 m16">
         <div class="card">
           <div class="review">
           <img class="profilePictureReviewPosition" src="<%= review.user.photo %>">
+
           <% if(locals.isLoggedIn && review.user && review.user.id === locals.user.id) { %>
           <form class="cross" action ="/films/<%= film._id %>/reviews/<%= review.id %>" method ="post">
           <input type="hidden" name="_method" value="delete">
@@ -45,6 +50,7 @@
           <% } %>
             <ul class="userName" ><%= review.user.username %></ul>
             <ul class="content"><%= review.content %></ul>
+
           </div>
         </div>
       </div>
