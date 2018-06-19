@@ -11,10 +11,10 @@ body{
     letter-spacing: 10px;
     color: black;
     font-size: 20px;
-    top: 20px;
-    left: 110px;
+    top: -5px;
+    left: 100px;
     height: 10px;
-    position: relative;
+    position: absolute;
     margin-top: 10px;
 }
 
@@ -403,14 +403,13 @@ nav ul.left {
     /* top: 20%; */
 }
 .profilePicture {
-    width: 60px;
-    top: 20%;
+    width: 50px;
+    top: 5px;
     right: 2%;
     position: absolute;
-    height: 60px;
-    border-radius: 60px;
+    height: 50px;
+    border-radius: 50px;
 }
-
 nav ul li {
     -webkit-transition: background-color .3s;
     transition: background-color .3s;
