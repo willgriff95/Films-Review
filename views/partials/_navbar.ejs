@@ -2,12 +2,12 @@
 
 <nav>
   <div class="nav-wrapper">
-    <a href="/" class="left logo">
-      <img src="../images/logo.png" height="30px" alt="">
-    </a>
+    <% console.log(locals.user) %>
+    <%# <a href="/films" class="logo">
+      <img src="../images/logo_logo.svg" height="55px" alt="">
+    </a> %>
       <% if(locals.isLoggedIn) { %>
         <ul id="nav-mobile" class="left hide-on-med-and-down">
-          <div><a class="films left " href="/films">Films</a></div>
         </ul>
         <ul class="arrow right hide-on-med-and-down">
           <a class="userSignIn2 dropdown-trigger white-text text-darken-2"  data-target="dropdown1">
