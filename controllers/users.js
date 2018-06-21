@@ -1,6 +1,30 @@
 const User = require('../models/user');
 
-function showRoute(req, res) {
+
+function newUser(req, res) {
+  console.log('inside newUser function');
+  res.render('registrations/index');
+}
+
+// ---------------------------Create a new User account--------------------------
+
+function createUser(req, res){
+  console.log('you created a user');
+  User
+    .create(req.body)
+    .then((user) => {
+      req.session.userId = user._id;
+      req.flash('successful', 'Sign up successful!');
+      return res.redirect('/');
+    })
+    .catch((error) => {
+      res.badRequest('signup', 'Your username or email is already taken.');
+      res.badRequest('signup', error.toString());
+
+    });
+}
+
+function showUser(req, res) {
   User
     .findById(req.params.id) // This is only usable because we have the body-parser
     .populate('user')
@@ -9,14 +33,14 @@ function showRoute(req, res) {
     .catch(err => console.log(err));
 }
 
-function editRoute(req, res) {
+function editUser(req, res) {
   User
     .findById(req.params.id)
     .exec()
     .then(user => res.render('users/edit', { user }));
 }
 
-function updateRoute(req, res) {
+function updateUser(req, res) {
   console.log('hitting user update');
 
 
@@ -32,7 +56,9 @@ function updateRoute(req, res) {
 }
 
 module.exports = {
-  show: showRoute,
-  edit: editRoute,
-  update: updateRoute
+  show: showUser,
+  edit: editUser,
+  update: updateUser,
+  new: newUser,
+  create: createUser
 };

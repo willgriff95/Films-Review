@@ -4,7 +4,7 @@
 
 const router = require('express').Router();
 const films = require('../controllers/films');
-const registrations = require('../controllers/registrations');
+// const registrations = require('../controllers/registrations');
 const sessions = require('../controllers/sessions');
 const users = require('../controllers/users');
 
@@ -13,8 +13,8 @@ const users = require('../controllers/users');
 function secureRoute(req, res, next){
   if(!req.session.userId){
     return req.session.regenerate(() =>{
+      res.redirect('/signin');
       req.flash('danger', 'You must be logged in');
-      res.redirect('/');
     });
   }
   return next();
@@ -23,10 +23,6 @@ function secureRoute(req, res, next){
 // ----------------------------------Homepage------------------------------------
 
 router.get('/', (req, res) => res.render('home'));
-
-router.route('/')
-  .get(films.index)
-  .post(films.create);
 
 // -------------------------------Films Resource---------------------------------
 
@@ -55,8 +51,8 @@ router.route('/films/:id/edit')
 
 router.route('/users/:id') //Defining a dynamic segment: a part of the URL will change. This bit is sending the id we've navigated to to the controller. The ID is taken from index.ejs.
   .get(users.show)
-  // .delete(users.delete)
   .put(users.update);
+  // .delete(users.delete)
 
 router.route('/users/:id/edit')
   .get(users.edit);
@@ -67,8 +63,8 @@ router.route('/users/:id/edit')
 // -------------------------------Authentication---------------------------------
 
 router.route('/signup')
-  .get(registrations.new)
-  .post(registrations.create);
+  .get(users.new)
+  .post(users.create);
 
 router.route('/signin')
   .get(sessions.new)
@@ -84,8 +80,8 @@ router.route('/logout')
 
 // If any other url entered that doesn't route to one already existing then return an error message
 router.route('/*').get((req, res) => {
-  req.flash('danger', 'THE URL REQUESTED DOESN\'T EXIST');
   res.redirect('/'); //This renders the error on the homepage
+  req.flash('danger', 'THE URL REQUESTED DOESN\'T EXIST');
   // res.render('statics/404.ejs');
 });
 //--------COMMENTS-------------------------------------------------------

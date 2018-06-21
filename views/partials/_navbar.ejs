@@ -1,38 +1,21 @@
-<!-- <% locals.user %> -->
 
-<nav>
-  <div class="nav-wrapper">
-    <% console.log(locals.user) %>
-    <a href="/films" class="logo">
-      <img src="../images/logo_logo.svg" height="55px" alt="">
-    </a>
-      <% if(locals.isLoggedIn) { %>
-        <ul id="nav-mobile" class="left hide-on-med-and-down">
-        </ul>
-        <ul class="arrow right hide-on-med-and-down">
-          <a class="userSignIn2 dropdown-trigger white-text text-darken-2"  data-target="dropdown1">
-            <i class="arrow-main material-icons right">keyboard_arrow_down</i>
-          </a>
-          <ul class="name" ><%= locals.user.username %></ul>
-          <% if(locals.user.photo === '') { %>
-            <li><img class="profilePicture" src="https://i.imgur.com/pxca5Js.jpg"></li>
-          <% } else { %>
-            <li><img class="profilePicture" src="<%= locals.user.photo %>"></li>
-            <% } %>
-        </ul>
-        <ul id="dropdown1" class="right dropdown-content" style="background-color: black">
-          <li class="dropdownMain">
-            <a href="/users/<%= locals.user._id %>/edit">Account</a>
-            <a href="/logout">Log Out</a>
-          </li>
-        </ul>
-        <% } else { %>
-          <ul id="nav-mobile" class="left hide-on-med-and-down">
-          </ul>
-          <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <div><a class="signInButton waves-effect waves-light blue btn right white-text text-darken-2" href="/signin">Sign In</a></div>
 
-          </ul>
-        <% } %>
+<% if(locals.isLoggedIn) { %>
+<div class="row">
+  <div class="col s1 z-depth-3" style="padding-left: 0 !important;">
+    <div class="sidebar z-depth-3">
+        <a href="/films" class="logo">
+        <img src="../images/logo_logo.svg" height="55px" alt="" />
+        </a>
+        <div class="navigation">
+        <ul>
+        <li class="navList valign-wrapper" ><a href="/films">Film<br/> Reviews</a></li>
+        <li class="navList valign-wrapper" ><a href="/films">About<br/> Revu</a></li>
+        <li class="navList valign-wrapper" ><a href="/users/<%= locals.user._id %>/edit">Account</a></li>
+        <li class="navList valign-wrapper" ><a href="/logout">Log Out</a></li>
+        </ul>
+        </div>
+    </div>
   </div>
-</nav>
+</div>
+<% } %>

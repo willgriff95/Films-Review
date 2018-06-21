@@ -43,7 +43,10 @@ function editRoute(req, res) {
 
 
 function deleteRoute(req, res) {
-  return req.session.regenerate(() => res.redirect('/'));
+  console.log('you deleted a film');
+  console.log(req.session);
+  // res.render('films/index');
+  return req.session.regenerate(() => res.render('films/index'));
 }
 
 
@@ -56,3 +59,37 @@ module.exports = {
   delete: deleteRoute,
   edit: editRoute
 };
+
+// // --------------The controller talks between the router and the view------------
+// // -------------The name of the file for a controller is always plural-----------
+//
+// // -----------------------------For the sign up----------------------------------
+//
+// const User = require('../models/user');
+// // const flash = require('express-flash');
+//
+// function newRoute(req, res) {
+//   res.render('registrations/index');
+// }
+//
+// // ---------------------------Create a new User account--------------------------
+//
+// function createRoute(req, res){
+//   console.log('you created a user');
+//   User
+//     .create(req.body)
+//     .then((user) => {
+//       req.session.userId = user._id;
+//       req.flash('successful', 'Sign up successful!');
+//       return res.redirect('/films');
+//     })
+//     .catch((error) => {
+//       res.badRequest('signup', 'Your username or email is already taken.');
+//       res.badRequest('signup', error.toString());
+//
+//     });
+// }
+//
+// module.exports = {
+//
+// };

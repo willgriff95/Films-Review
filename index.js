@@ -61,7 +61,7 @@ app.use((req, res, next) =>{
 
 app.use(routes); // Using the routes as a middleware
 
-app.use((err, req, res, next) => { //This whole thing will only be run if err is true.
+app.use((err, req, res) => { //This whole thing will only be run if err is true.
   err.status = err.status || 500; //"If anything happens to the server that is handled by express, use err.status. If express is not giving any status for the error, use 500 (internal server error)"
   err.message = err.message || 'Internal Server Error';
   res.status(err.status); //Setting the actual response status
